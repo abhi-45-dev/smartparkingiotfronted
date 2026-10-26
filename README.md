@@ -2,7 +2,13 @@
 
 A complete, production-ready IoT smart parking system powered by an **ESP32 DevKit V4**, a **CD74HC4067 16-channel multiplexer**, 5 **HC-SR04 ultrasonic sensors**, a **servo boom barrier**, a **20x4 I2C LCD**, and a high-performance **React + TypeScript + Vite + Tailwind CSS** web dashboard streaming real-time telemetry over **EMQX MQTT WebSockets**.
 
-![Smart Parking System Architecture](https://img.shields.io/badge/Architecture-ESP32%20%2B%20CD74HC4067%20%2B%20MQTT-emerald)
+[![Live Dashboard on Vercel](https://img.shields.io/badge/Vercel-Live%20Dashboard-success?style=for-the-badge&logo=vercel)](https://frontend-swart-gamma-was9hbwojq.vercel.app)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-smartparkingiotfronted-blue?style=for-the-badge&logo=github)](https://github.com/abhi-45-dev/smartparkingiotfronted)
+
+> 🌐 **Live Production URL:** [https://frontend-swart-gamma-was9hbwojq.vercel.app](https://frontend-swart-gamma-was9hbwojq.vercel.app)  
+> 📦 **GitHub Repository:** [https://github.com/abhi-45-dev/smartparkingiotfronted](https://github.com/abhi-45-dev/smartparkingiotfronted)
+
+![Architecture](https://img.shields.io/badge/Architecture-ESP32%20%2B%20CD74HC4067%20%2B%20MQTT-emerald)
 ![Broker](https://img.shields.io/badge/Broker-broker.emqx.io-blue)
 ![Topic](https://img.shields.io/badge/Topic-smartparking%2Fesp32%2Flot4%2Fstatus-cyan)
 ![Frontend](https://img.shields.io/badge/Frontend-React%2018%20%7C%20Vite%20%7C%20TailwindCSS-purple)
@@ -223,19 +229,18 @@ If using a physical ESP32 connected via USB without local Wi-Fi:
 
 ## 8. Deployment to Vercel
 
-1. Push this repository to GitHub:
-   ```bash
-   git add .
-   git commit -m "feat: build complete smart parking platform"
-   git push origin main
-   ```
-2. Import the `frontend` directory into [Vercel](https://vercel.com):
-   - **Framework Preset**: Vite
-   - **Root Directory**: `frontend`
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-3. Once deployed, open the permanent public URL (e.g., `https://smartparkingiotfronted.vercel.app`).
-4. The QR code will automatically lock to this live public URL.
+The frontend is live and deployed in production on Vercel:
+
+- **Live Production URL:** [https://frontend-swart-gamma-was9hbwojq.vercel.app](https://frontend-swart-gamma-was9hbwojq.vercel.app)
+- **Deployment Platform:** Vercel (Vite Framework Preset)
+- **Automatic QR Sync:** The QR code automatically encodes and locks to `https://frontend-swart-gamma-was9hbwojq.vercel.app` on load.
+
+To redeploy or update manually:
+```bash
+cd frontend
+npm run build
+npx vercel --prod
+```
 
 ---
 
