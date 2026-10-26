@@ -1,0 +1,24 @@
+{
+  "name": "smartparking-usb-bridge",
+  "version": "1.0.0",
+  "description": "USB Serial to MQTT Cloud Bridge for 4-Slot Smart Parking System",
+  "main": "bridge.js",
+  "scripts": {
+    "start": "node bridge.js",
+    "ports": "node -e \"require('serialport').SerialPort.list().then(ports => console.log(ports))\""
+  },
+  "dependencies": {
+    "@serialport/parser-readline": "^12.0.0",
+    "mqtt": "^5.10.4",
+    "serialport": "^12.0.0"
+  },
+  "keywords": [
+    "esp32",
+    "smart-parking",
+    "serialport",
+    "mqtt",
+    "iot-bridge"
+  ],
+  "author": "abhi-45-dev",
+  "license": "MIT"
+}

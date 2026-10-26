@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "author": "Smart Parking Systems Team",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 120,
+      "left": 280,
+      "attrs": {}
+    },
+    {
+      "type": "board-cd74hc4067",
+      "id": "mux1",
+      "top": 110,
+      "left": 550,
+      "attrs": {
+        "digitalMux": "1",
+        "analogDemux": "0",
+        "digitalDemux": "0",
+        "floatingSig": "0"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "sensor_slot1",
+      "top": -120,
+      "left": 500,
+      "attrs": { "distance": "62" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "sensor_slot2",
+      "top": -120,
+      "left": 750,
+      "attrs": { "distance": "381" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "sensor_slot3",
+      "top": -120,
+      "left": 1000,
+      "attrs": { "distance": "330" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "sensor_slot4",
+      "top": -120,
+      "left": 1250,
+      "attrs": { "distance": "45" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "sensor_gate",
+      "top": 380,
+      "left": 20,
+      "attrs": { "distance": "384" }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "gate_servo",
+      "top": 400,
+      "left": 280,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd",
+      "top": 100,
+      "left": -120,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp:5V", "mux1:VCC", "red", [ "v0" ] ],
+    [ "esp:GND.1", "mux1:GND", "black", [ "v0" ] ],
+    [ "esp:GND.1", "mux1:EN", "black", [ "v0" ] ],
+    [ "esp:32", "mux1:S0", "blue", [ "v0" ] ],
+    [ "esp:33", "mux1:S1", "green", [ "v0" ] ],
+    [ "esp:25", "mux1:S2", "yellow", [ "v0" ] ],
+    [ "esp:26", "mux1:S3", "orange", [ "v0" ] ],
+    [ "esp:17", "mux1:COM", "purple", [ "v0" ] ],
+
+    [ "esp:5V", "sensor_slot1:VCC", "red", [ "v0" ] ],
+    [ "esp:GND.1", "sensor_slot1:GND", "black", [ "v0" ] ],
+    [ "esp:13", "sensor_slot1:TRIG", "blue", [ "v0" ] ],
+    [ "mux1:C0", "sensor_slot1:ECHO", "cyan", [ "v0" ] ],
+
+    [ "esp:5V", "sensor_slot2:VCC", "red", [ "v0" ] ],
+    [ "esp:GND.1", "sensor_slot2:GND", "black", [ "v0" ] ],
+    [ "esp:12", "sensor_slot2:TRIG", "blue", [ "v0" ] ],
+    [ "mux1:C1", "sensor_slot2:ECHO", "cyan", [ "v0" ] ],
+
+    [ "esp:5V", "sensor_slot3:VCC", "red", [ "v0" ] ],
+    [ "esp:GND.1", "sensor_slot3:GND", "black", [ "v0" ] ],
+    [ "esp:14", "sensor_slot3:TRIG", "blue", [ "v0" ] ],
+    [ "mux1:C2", "sensor_slot3:ECHO", "cyan", [ "v0" ] ],
+
+    [ "esp:5V", "sensor_slot4:VCC", "red", [ "v0" ] ],
+    [ "esp:GND.1", "sensor_slot4:GND", "black", [ "v0" ] ],
+    [ "esp:27", "sensor_slot4:TRIG", "blue", [ "v0" ] ],
+    [ "mux1:C3", "sensor_slot4:ECHO", "cyan", [ "v0" ] ],
+
+    [ "esp:5V", "sensor_gate:VCC", "red", [ "v0" ] ],
+    [ "esp:GND.2", "sensor_gate:GND", "black", [ "v0" ] ],
+    [ "esp:19", "sensor_gate:TRIG", "orange", [ "v0" ] ],
+    [ "esp:19", "sensor_gate:ECHO", "orange", [ "v0" ] ],
+
+    [ "esp:5V", "gate_servo:V+", "red", [ "v0" ] ],
+    [ "esp:GND.2", "gate_servo:GND", "black", [ "v0" ] ],
+    [ "esp:18", "gate_servo:PWM", "purple", [ "v0" ] ],
+
+    [ "esp:5V", "lcd:VCC", "red", [ "v0" ] ],
+    [ "esp:GND.2", "lcd:GND", "black", [ "v0" ] ],
+    [ "esp:21", "lcd:SDA", "green", [ "v0" ] ],
+    [ "esp:22", "lcd:SCL", "blue", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
